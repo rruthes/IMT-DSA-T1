@@ -19,7 +19,7 @@ public class NossoVetor {
   }
   public int remover() {
     if (estaVazio()) {
-        throw new VetorVazioException("vetor vazio, nao a o que remover");
+        throw new VetorVazioException("vetor vazio, nao há o que remover");
     }
     int aux = vetor[--ocupacao];
     if (vetor.length >= 6 && ocupacao <= vetor.length / 4) {
@@ -95,9 +95,36 @@ public class NossoVetor {
         vetor[i+1] = x;
      }
   }
-}
-class VetorVazioException extends RuntimeException {
-    public VetorVazioException(String msg) {
-      super(msg);
+  public int buscaLinear(int elemento) {
+    for (int i = 0; i < vetor.length; i++) {
+      if (vetor[i] == elemento) {
+        return 1;
+      }
     }
+    return -1;
+  }
+
+  public int buscaBinaria(int elemento) {
+    int inicio = 0;
+    int fim = vetor.length - 1;
+    while (inicio <= fim) {
+      
+      int meio = inicio + (fim - inicio) / 2;
+      if (elemento == vetor[meio]) {
+        return meio;
+      }
+      if (elemento > vetor[meio]) {
+        inicio = meio + 1;
+      } else {
+        fim = meio - 1;
+      }
+    }
+    return -1;
+  }
+}
+
+class VetorVazioException extends RuntimeException {
+  public VetorVazioException(String msg) {
+    super(msg);
+  }
 }
