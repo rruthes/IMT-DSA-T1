@@ -74,7 +74,7 @@ public class NossoVetor {
       }
     }
   }
-  public void selectionsort ()
+  public void selectionSort ()
   {
      for (int i = 0; i < vetor.length-1; ++i) {
         int min = i;
@@ -85,7 +85,7 @@ public class NossoVetor {
         vetor[min] = x;
      }
   }
-  public void insertionsort ()
+  public void insertionSort ()
   {
      for (int j = 1; j < vetor.length; ++j) {
         int x = vetor[j];
