@@ -1,0 +1,3 @@
+bubble - trocas e comparações: O(n²)
+insertion - trocas e comparações: O(n²)
+selection - trocas: O(n) - comparações: O(n²)
