@@ -98,7 +98,7 @@ public class NossoVetor {
   public int buscaLinear(int elemento) {
     for (int i = 0; i < vetor.length; i++) {
       if (vetor[i] == elemento) {
-        return 1;
+        return i;
       }
     }
     return -1;
