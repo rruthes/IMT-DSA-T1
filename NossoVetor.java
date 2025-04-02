@@ -101,7 +101,7 @@ public class NossoVetor {
         return i;
       }
     }
-    return -1;
+    return i;
   }
 
   public int buscaBinaria(int elemento) {
