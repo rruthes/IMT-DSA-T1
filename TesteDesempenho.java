@@ -6,31 +6,37 @@ public class TesteDesempenho {
         Scanner scanner = new Scanner(System.in);
         NossoVetor v;
         int t;
+        int e;
+        System.out.println("elemento a ser buscado: ");
+        e = scanner.nextInt();
         System.out.print("digite o tamanho do vetor, 0 encerra: ");
         t = scanner.nextInt();
         while (t > 0) {
             v = new NossoVetor(t);
+
             v.preecheVetor();
-            //System.out.println("vetor original:\n" + v);
+            System.out.println(v.buscaLinear(e));
             long ini = Calendar.getInstance().getTimeInMillis();
             v.bubbleSort();
             long fim = Calendar.getInstance().getTimeInMillis();
             System.out.println("bubble demorou " + (fim - ini) + " milissegundos");
-            //System.out.println("\nvetor ordenado:\n" + v);
-            // System.out.println("agora: " + Calendar.getInstance().getTime());
-            // System.out.println("agora em milissegundos: " + Calendar.getInstance().getTimeInMillis());
+            System.out.println(v.buscaBinaria(e));
 
             v.preecheVetor();
+            System.out.println(v.buscaLinear(e));
             ini = Calendar.getInstance().getTimeInMillis();
             v.selectionSort();
             fim = Calendar.getInstance().getTimeInMillis();
             System.out.println("selection demorou " + (fim - ini) + " milissegundos");
+            System.out.println(v.buscaBinaria(e));
 
             v.preecheVetor();
+            System.out.println(v.buscaLinear(e));
             ini = Calendar.getInstance().getTimeInMillis();
             v.insertionSort();
             fim = Calendar.getInstance().getTimeInMillis();
             System.out.println("insertion demorou " + (fim - ini) + " milissegundos");
+            System.out.println(v.buscaBinaria(e));
 
             ini = Calendar.getInstance().getTimeInMillis();
             v.bubbleSort();
