@@ -1,61 +1,41 @@
-import java.util.Calendar;
 import java.util.Scanner;
-
 public class TesteDesempenho {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        NossoVetor v;
+        NossoVetor vetorTeste;
         int t;
         int e;
-        System.out.println("elemento a ser buscado: ");
-        e = scanner.nextInt();
-        System.out.print("digite o tamanho do vetor, 0 encerra: ");
+        int qtdTestes;
+
+        System.out.println("Tamanho do Vetor: ");
         t = scanner.nextInt();
-        while (t > 0) {
-            v = new NossoVetor(t);
+        System.out.println("Elemento a ser buscado: ");
+        e = scanner.nextInt();
+        System.out.println("Quantidade de Testes: ");
+        qtdTestes = scanner.nextInt();
 
-            v.preecheVetor();
-            System.out.println(v.buscaLinear(e));
-            long ini = Calendar.getInstance().getTimeInMillis();
-            v.bubbleSort();
-            long fim = Calendar.getInstance().getTimeInMillis();
-            System.out.println("bubble demorou " + (fim - ini) + " milissegundos");
-            System.out.println(v.buscaBinaria(e));
+        for (int i = 1; i < qtdTestes + 1; i++) {
+            vetorTeste = new NossoVetor(t);
+            System.out.printf("\nBateria de Testes %d \n", i);
 
-            v.preecheVetor();
-            System.out.println(v.buscaLinear(e));
-            ini = Calendar.getInstance().getTimeInMillis();
-            v.selectionSort();
-            fim = Calendar.getInstance().getTimeInMillis();
-            System.out.println("selection demorou " + (fim - ini) + " milissegundos");
-            System.out.println(v.buscaBinaria(e));
+            vetorTeste.preencheVetor();
+            System.out.println(vetorTeste.buscaLinear(e));  
+            System.out.println(vetorTeste.bubbleSort());
+            System.out.println(vetorTeste.buscaBinaria(e) + "\n");   
 
-            v.preecheVetor();
-            System.out.println(v.buscaLinear(e));
-            ini = Calendar.getInstance().getTimeInMillis();
-            v.insertionSort();
-            fim = Calendar.getInstance().getTimeInMillis();
-            System.out.println("insertion demorou " + (fim - ini) + " milissegundos");
-            System.out.println(v.buscaBinaria(e));
+            vetorTeste.preencheVetor();
+            System.out.println(vetorTeste.buscaLinear(e));
+            System.out.println(vetorTeste.selectionSort());
+            System.out.println(vetorTeste.buscaBinaria(e) + "\n");
 
-            ini = Calendar.getInstance().getTimeInMillis();
-            v.bubbleSort();
-            fim = Calendar.getInstance().getTimeInMillis();
-            System.out.println("bubble ordenado demorou " + (fim - ini) + " milissegundos");
+            vetorTeste.preencheVetor();
+            System.out.println(vetorTeste.buscaLinear(e));
+            System.out.println(vetorTeste.insertionSort());
+            System.out.println(vetorTeste.buscaBinaria(e) + "\n");
 
-            ini = Calendar.getInstance().getTimeInMillis();
-            v.selectionSort();
-            fim = Calendar.getInstance().getTimeInMillis();
-            System.out.println("selection ordenado demorou " + (fim - ini) + " milissegundos");
-
-            ini = Calendar.getInstance().getTimeInMillis();
-            v.insertionSort();
-            fim = Calendar.getInstance().getTimeInMillis();
-            System.out.println("insertion ordenado demorou " + (fim - ini) + " milissegundos");
-            
-            System.out.print("\ndigite o novo tamanho, 0 encerra: ");
-            t = scanner.nextInt();
         }
+
         scanner.close();
+
     }
 }
