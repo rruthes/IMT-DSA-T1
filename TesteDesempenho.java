@@ -1,6 +1,8 @@
 import java.util.Scanner;
 public class TesteDesempenho {
     public static void main(String[] args) {
+
+
         Scanner scanner = new Scanner(System.in);
         NossoVetor vetorTeste;
         int t;
@@ -19,7 +21,7 @@ public class TesteDesempenho {
             System.out.printf("\nBateria de Testes %d \n", i);
 
             vetorTeste.preencheVetor();
-            System.out.println(vetorTeste.buscaLinear(e));  
+            System.out.println(vetorTeste.buscaLinear(e));
             System.out.println(vetorTeste.bubbleSort());
             System.out.println(vetorTeste.buscaBinaria(e) + "\n");   
 
