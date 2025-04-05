@@ -26,54 +26,54 @@ public class NossoVetor {
     }
 
     public long bubbleSort() {
-        long contadorBS = 0;
+        long contador = 0;
         for (int i = 1; i < vetor.length; i++) {
             for (int j = 0; j < vetor.length - i; j++) {
+                contador++; 
                 if (vetor[j] > vetor[j + 1]) {
                     int aux = vetor[j];
                     vetor[j] = vetor[j + 1];
                     vetor[j + 1] = aux;
-
-                    contadorBS++;
+                    contador += 3; 
                 }
             }
         }
-        return contadorBS;
+        return contador;
     }
-
+    
     public long selectionSort() {
-        long contadorSS = 0;
+        long contador = 0;
         for (int i = 0; i < vetor.length - 1; ++i) {
             int min = i;
             for (int j = i + 1; j < vetor.length; ++j) {
-                if (vetor[j] < vetor[min]) {
+                contador++; 
+                if (vetor[j] < vetor[min])
                     min = j;
-                }
-                int x = vetor[i];
-                vetor[i] = vetor[min];
-                vetor[min] = x;
-                if (vetor[i] != vetor[min]) {
-                    contadorSS++;
-                }
-
+                    contador++; 
             }
+            int x = vetor[i];
+            vetor[i] = vetor[min];
+            vetor[min] = x;
+            contador += 3; 
         }
-        return contadorSS;
+        return contador;
     }
-
+    
     public long insertionSort() {
-        long contadorIS = 0;
+        long contador = 0;
         for (int j = 1; j < vetor.length; ++j) {
             int x = vetor[j];
+            contador++; 
             int i;
             for (i = j - 1; i >= 0 && vetor[i] > x; --i) {
+                contador++; 
                 vetor[i + 1] = vetor[i];
-                contadorIS++;
+                contador++; 
             }
             vetor[i + 1] = x;
+            contador++; 
         }
-
-        return contadorIS;
+        return contador;
     }
 
     public int buscaLinear(int elemento) {
